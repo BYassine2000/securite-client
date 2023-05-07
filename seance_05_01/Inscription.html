@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Facture</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+<center>
+    <h1>Exercice: écrire un script js qui permet de : <br>-transformr un Nom de personne saisi en Majuscules <br>-transformer un Prénom saisi en Première lettre en majuscule et le reste en miniscule.
+        <br>-Evenement à utiliser onblur
+        <br>-Ajouter un champ Email et Vérifier par une fonction Js que l'email contion un sel @ et un ou plusieur '.' Dans le cas contraire afficher le champ avec une autre couleur.
+    <br>-Controler l'age de la personne (18-99) et changer la couleur selon l'erreur;
+</h1>
+    <script type="text/javascript">
+      function traiterNom() {
+    let nom = document.getElementById("nom").value;//obtient un element et sa valeur(contenu) au moyen de l'id
+    nom = nom.toUpperCase();//traitement de l'element obtenu
+
+document.getElementById("nom").value = nom;// stockage du traitement par l'élement obtenu
+
+}
+
+       function traiterPrenom()
+
+        {
+
+            var prenom=document.getElementById("prenom").value;
+
+            prenom=(prenom.substring(0,1).toUpperCase())+(prenom.substring(1)).toLowerCase();
+
+            document.getElementById("prenom").value=prenom;
+
+
+}
+function traiterEmail() {
+            let email = document.getElementById("email").value;
+            let cEmail=0, cPoint=0;
+            for (let i=0; i<email.length; i++) {
+                if (email.charAt(i) === '@') {
+                    cEmail ++;
+                } else if (email.charAt(i) === '.') {
+                    cPoint ++;
+                }
+            }
+            if (cEmail === 1 && cPoint >= 1) {
+                document.getElementById("email").style.backgroundColor = "green";
+            } else {
+                document.getElementById("email").style.backgroundColor = "red";
+            }
+        }
+
+
+
+
+        function traiterAge () {
+    let age = document.getElementById("age").value;
+    if (age >= 18 && age <= 99) {
+        document.getElementById("age").style.backgroundColor = "green";
+    } else {
+        document.getElementById("age").style.backgroundColor = "red";
+    }
+}
+
+
+//l'evenement onblur est utiliser pour vérifier la saisie de formulaire
+
+
+
+
+  </script>
+    <form method="post" >
+       <table>
+       <tr>
+        <td>Nom:</td>   
+<td><input type="text" name="nom" id="nom" onblur="traiterNom()"></td>
+       </tr>    
+</tr>
+
+      <td>Prenom:</td>   
+<td><input type="text" name="prenom" id="prenom" onblur="traiterPrenom()"></td>
+       </tr>    
+
+
+   <td>Email:</td>   
+<td><input type="text" name="mail" id="email" onblur="traiterEmail()"></td>
+       </tr>    
+
+   <td>Age:</td>   
+<td><input type="text" name="age" id="age" onblur="traiterAge()"></td>
+       </tr>    
+
+
+       </table>
+    </form>
+</center>
+</body>
+</html>
+

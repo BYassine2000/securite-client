@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Somme </title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<center>
+		<h1> Exercice 2 : écrire un Script JS qui permet de saisir deux entiers et d'afficher la somme de tous les nombres compris entre les deux entiers. Vérifier bien que l'un et plus petit que l'autre pour construire un intervalle. </h1>
+		<script type="text/javascript">
+			var nb1, nb2, i, tt, temp;
+			tt = 0; 
+			nb1 = parseInt (prompt("Donner un premier entier :")); 
+			nb2 = parseInt (prompt("Donner un deuxième entier :")); 
+			if (nb2 < nb1)
+			{
+				temp = nb2; 
+				nb2 = nb1; 
+				nb1 = temp;
+			}
+			for (i = nb1; i <= nb2; i++)
+			{
+				tt += i ;
+			}
+			alert ("La somme des nombres de l'intervalle est de "+tt);
+		</script>
+	</center>
+</body>
+</html>

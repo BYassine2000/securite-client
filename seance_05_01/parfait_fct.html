@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>parfait avec des fonctions  </title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<center>
+		<h1> Exercice 4: écrire un script JS qui permet d'utiliser deux fonctions : <br/>
+			- une fonction qui reçoit un entier et retourne la somme de ses diviseurs sauf lui même. <br/>
+			- une fonction qui reçoit deux arguments et affiche la liste des nombres parfaits. <br/>
+	</h1>
+		<script type="text/javascript">
+
+			var a, b ;
+			
+			function somme (nb)
+			{
+				var s = 0, div ; 
+				for (div = 1; div < nb ; div++)
+				{
+				if (nb % div == 0)
+					{
+						s = s + div ;
+					}
+				}
+				return s ; 
+			}
+			function trouverParfait (nb1, nb2)
+			{
+				var chaine = "Les nombres parfaits : ";
+				var temp,nb; 
+				if (nb2 < nb1){
+					temp = nb2; 
+					nb2 = nb1; 
+					nb1 = temp;
+				}
+				for (nb = nb1; nb <= nb2; nb++) {
+					//appel de la fonction somme 
+					if (somme(nb) == nb){
+						chaine += nb + " ; ";
+					}
+				}
+				alert (chaine);
+			}
+			 
+			a = parseInt (prompt("Donner la borne 1 :")); 
+			b = parseInt (prompt("Donner la borne 2 :")); 
+			//appel de la procédure trouverParfait
+			trouverParfait(a, b);
+		</script>
+	</center>
+</body>
+</html>

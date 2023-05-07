@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>parfait </title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<center>
+		<h1> Exercice 3: écrire un script JS qui permet de saisir deux bornes entières et affiche tous les nombres parfaits compris entre les bornes. 
+		Un nombre est dit parfait s'il est égal à la somme de ses diviseurs sauf lui même.
+	</h1>
+		<script type="text/javascript">
+			var nb1, nb2,nb, div, temp, somme ;
+			var chaine = "Les nombres parfaits : "; 
+			nb1 = parseInt (prompt("Donner la borne 1 :")); 
+			nb2 = parseInt (prompt("Donner la borne 2 :")); 
+			if (nb2 < nb1)
+			{
+				temp = nb2; 
+				nb2 = nb1; 
+				nb1 = temp;
+			}
+			for (nb = nb1; nb <= nb2; nb++) {
+				somme = 0; 
+				for (div = 1; div < nb ; div++)
+				{
+				if (nb % div == 0)
+					{
+						somme = somme + div ;
+					}
+				}
+				if (somme == nb){
+					chaine += nb + " ; ";
+				}
+			}
+			alert (chaine);
+		</script>
+	</center>
+</body>
+</html>
